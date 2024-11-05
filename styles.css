@@ -374,36 +374,31 @@ body {
 
 .slider-controls {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 10px;
+    right: 20px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     z-index: 10;
 }
 
-.slider-controls button {
+.prev-btn,
+.next-btn {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
-    border: none;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.slider-controls button:hover {
-    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    font-size: 18px;
+    background: none;
+    border: none;
 }
 
 .page-count {
-    color: white;
+    color: #fff;
     font-size: 14px;
-    min-width: 50px;
+    min-width: 40px;
     text-align: center;
 }
 
@@ -817,28 +812,42 @@ body {
 
     /* 슬라이더 컨트롤 */
     .slider-controls {
-        width: 100%;
+        position: absolute;
+        top: 140px; /* 위치 조정 */
+        left: 0;
+        right: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        margin-bottom: 15px;
-        padding: 0 10px;
+        gap: 15px;
+        z-index: 100;
+        width: 100%;
     }
 
-    .prev-btn, .next-btn {
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
+    .prev-btn,
+    .next-btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 18px;
         background: rgba(255, 255, 255, 0.2);
         border: none;
-        color: white;
-        font-size: 18px;
-        cursor: pointer;
+        border-radius: 50%;
     }
 
     .page-count {
-        color: white;
+        color: #fff;
         font-size: 14px;
+        min-width: 40px;
+        text-align: center;
+    }
+
+    /* 카드 섹션 여백 조정 */
+    .loan-card {
+        margin-top: 40px; /* 슬라이더 컨트롤을 위한 여백 */
     }
 }
 
@@ -1158,7 +1167,7 @@ body {
 
 /* 모바일 레이아웃 수정 */
 @media screen and (max-width: 768px) {
-    /* 슬라이더 컨테이너 수정 */
+    /* 슬라이더 컨이너 수정 */
     .loan-slider {
         width: 100%;
         overflow: hidden;
@@ -1228,7 +1237,7 @@ body {
     }
     
     .interest-rate .divider {
-        display: block; /* 구분자 다음에서 강제 줄바꿈 */
+        display: block; /* 구분자 다���에서 강제 줄바꿈 */
         height: 0;
         overflow: hidden;
     }
@@ -1239,6 +1248,7 @@ body {
     /* 메인 타이틀과 이자율 정보 중앙 정렬 */
     .slider-header {
         text-align: center;
+        margin-bottom: 10px;
     }
 
     .slider-header h1 {
@@ -1248,47 +1258,72 @@ body {
 
     .interest-rate {
         text-align: center;
-        white-space: normal;
+        margin-bottom: 15px;
     }
 
-    /* 슬라이더 컨트롤 */
+    /* 슬라이더 컨트롤 위치 수정 */
     .slider-controls {
+        position: static;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 15px;
-        margin: 15px 0;
+        margin: 0 0 15px 0;
         width: 100%;
+        padding: 5px 0;
+        background: none;
     }
 
+    /* 슬라이더 버튼 스타일 수정 */
     .prev-btn,
     .next-btn {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: #fff;
         font-size: 18px;
         background: none;
         border: none;
-        padding: 5px;
-        opacity: 0.8;
+        border-radius: 50%;
     }
 
-    .page-count {
-        color: #fff;
-        font-size: 14px;
-        min-width: 40px;
-        text-align: center;
-    }
-
-    /* 카드 내용 중앙 정렬 */
+    /* 카드 섹션 여백 수정 */
     .loan-card {
-        text-align: center;
+        margin-top: 0;
     }
 
-    .loan-card h3 {
+    .loan-cards-wrapper {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* 메인 타이틀 여백 축소 */
+    .slider-header {
         text-align: center;
+        margin-bottom: 5px; /* 여백 더 줄임 */
+        padding: 10px 0; /* 패딩도 줄임 */
     }
 
-    .loan-card p {
+    .slider-header h1 {
         text-align: center;
-        padding: 0;
+        margin-bottom: 5px; /* 여백 줄임 */
+        font-size: 20px; /* 글자 크기도 약간 줄임 */
+        line-height: 1.3; /* 줄간격도 약간 줄임 */
+    }
+
+    .interest-rate {
+        text-align: center;
+        margin-bottom: 10px; /* 여백 줄임 */
+        font-size: 13px; /* 글자 크기도 약간 줄임 */
+        line-height: 1.4;
+    }
+
+    /* 슬라이더 컨트롤 */
+    .slider-controls {
+        margin: 0 0 10px 0; /* 상하 여백 줄임 */
+        padding: 3px 0; /* 패딩 줄임 */
     }
 }
