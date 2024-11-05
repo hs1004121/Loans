@@ -20,12 +20,16 @@ body {
     font-family: 'NanumBarunGothic', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* 상단 등록번호 바 */
@@ -500,15 +504,15 @@ body {
 
 .loan-slider {
     position: relative;
-    margin-top: 40px;
-    width: 800px;
+    margin-top: 30px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .loan-cards-wrapper {
     overflow: hidden;
-    width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -673,4 +677,618 @@ body {
 .copyright {
     color: #fff;
     font-size: 12px;
+}
+
+/* 모바일 반응형 CSS를 추가 */
+
+@media screen and (max-width: 768px) {
+    /* 컨테이너 */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* 메인 레이아웃 */
+    .main-layout {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .left-section {
+        width: 100%;
+    }
+
+    /* 메인 슬라이더 */
+    .main-slider {
+        width: 100%;
+    }
+
+    .slider-header {
+        padding: 20px 0;
+    }
+
+    .slider-header h1 {
+        font-size: 22px;
+        line-height: 1.4;
+        word-break: keep-all;
+    }
+
+    .slider-header p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    /* 대출 카드 슬라이더 */
+    .loan-slider {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .loan-cards-wrapper {
+        width: 100%;
+        overflow: hidden;
+        padding: 0 15px;
+    }
+
+    .loan-cards {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+        width: max-content;
+    }
+
+    .loan-card {
+        flex: 0 0 calc(100vw - 30px);
+        width: calc(100vw - 30px);
+        min-height: 150px;
+        padding: 20px;
+    }
+
+    .loan-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .loan-card p {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .loan-card img {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* 상담 현황 섹션 */
+    .status-section {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .status-items {
+        height: 200px;
+        width: 100%;
+    }
+
+    .status-item {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* 공지사항 섹션 */
+    .notice-section {
+        width: 100%;
+        margin-top: 30px;
+        padding: 20px;
+    }
+
+    .notice-list {
+        width: 100%;
+    }
+
+    .notice-list li {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    /* 하단 메뉴 */
+    .bottom-menu {
+        width: 100%;
+        padding: 15px 0;
+        margin-top: 30px;
+    }
+
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .footer-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+    }
+
+    /* 슬라이더 컨트롤 */
+    .slider-controls {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 0 10px;
+    }
+
+    .prev-btn, .next-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .page-count {
+        color: white;
+        font-size: 14px;
+    }
+}
+
+/* 작은 모바일: 1개씩 보이기 */
+@media screen and (max-width: 480px) {
+    .loan-card {
+        flex: 0 0 100%;
+        width: 100%;
+        min-height: 150px;
+        padding: 20px;
+    }
+
+    .loan-card h3 {
+        font-size: 18px;
+    }
+
+    .loan-card p {
+        font-size: 14px;
+    }
+
+    .loan-card img {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* 가로 모드를 위한 스타일 */
+@media screen and (max-width: 896px) and (orientation: landscape) {
+    .main-layout {
+        padding: 20px 0;
+    }
+
+    .loan-card {
+        height: 140px;
+    }
+
+    .status-items {
+        height: 160px;
+    }
+}
+
+/* PC 화면에서의 카드 설정 */
+.loan-slider {
+    position: relative;
+    margin-top: 30px;
+    width: 800px; /* PC에서의 고정 너비 */
+}
+
+.loan-cards-wrapper {
+    overflow: hidden;
+    width: 800px; /* PC에서의 고정 너비 */
+    margin: 0 auto;
+}
+
+.loan-card {
+    flex: 0 0 256.67px;
+    width: 256.67px;
+    height: 180px;
+}
+
+/* 모바일에서만 변경되는 설정 */
+@media screen and (max-width: 768px) {
+    .loan-slider,
+    .loan-cards-wrapper {
+        width: 100%; /* 모바일에서는 전체 너비로 */
+    }
+
+    .loan-card {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+
+    .loan-cards {
+        gap: 0;
+    }
+}
+
+/* 모바일 반응형 수정 */
+@media screen and (max-width: 768px) {
+    /* 메인 레이아웃 수정 */
+    .main-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 모든 섹션 공통 스타일 */
+    .main-slider,
+    .quick-consult,
+    .notice-section,
+    .promo-banner,
+    .loan-slider,
+    .loan-cards-wrapper,
+    .status-section,
+    .diagonal-background {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0 15px;
+    }
+
+    /* 슬라이더 카드 조정 */
+    .loan-card {
+        flex: 0 0 100%;
+        width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box;
+        padding: 15px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    /* 컨테이너 내부 여백 조정 */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* 상담 신청 현황 텍스트 크기 조정 */
+    .status-item span {
+        font-size: 12px;
+    }
+
+    .status-item {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+
+    /* 카드 섹션 조정 */
+    .loan-card {
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    /* 이미지 위치 조정 */
+    .loan-card img {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* 더 작은 모바일 화면 대응 */
+@media screen and (max-width: 480px) {
+    .container,
+    .main-slider,
+    .quick-consult,
+    .notice-section,
+    .promo-banner {
+        padding: 10px;
+    }
+
+    .loan-card {
+        padding: 8px;
+        margin: 5px 0;
+    }
+
+    .status-item span {
+        font-size: 11px;
+    }
+
+    .loan-card img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* 카드 섹션 레이아웃 수정 */
+.loan-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 140px;
+    background: white;
+    border-radius: 12px;
+}
+
+/* 텍스트 영역 */
+.loan-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: #333;
+}
+
+.loan-card p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+    margin: 0;
+    padding-right: 60px; /* 이미지를 위한 여백 */
+}
+
+/* 이미지 위치 수정 */
+.loan-card img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    .loan-card {
+        padding: 15px;
+        min-height: 120px;
+    }
+
+    .loan-card h3 {
+        font-size: 16px;
+        margin: 0 0 8px 0;
+    }
+
+    .loan-card p {
+        font-size: 13px;
+        padding-right: 50px;
+    }
+
+    .loan-card img {
+        width: 40px;
+        height: 40px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* PC 레이아웃은 기존 유지 */
+.loan-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 140px;
+    background: white;
+    border-radius: 12px;
+}
+
+.loan-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: #333;
+}
+
+.loan-card p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+    margin: 0;
+    padding-right: 60px;
+}
+
+.loan-card img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+}
+
+/* 모바일에서만 다른 레이아웃 적용 */
+@media screen and (max-width: 768px) {
+    .loan-card {
+        text-align: center;
+        padding: 15px;
+        min-height: auto;
+    }
+
+    .loan-card img {
+        position: static; /* absolute 해제 */
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 12px;
+        display: block;
+    }
+
+    .loan-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .loan-card p {
+        font-size: 13px;
+        padding-right: 0; /* 우측 패딩 제거 */
+    }
+
+    /* 더보기 메뉴 버튼 */
+    .card-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+}
+
+/* PC 레이아웃은 기존 유지 */
+.loan-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 140px;
+    background: white;
+    border-radius: 12px;
+}
+
+/* 모바일 레이아웃 수정 */
+@media screen and (max-width: 768px) {
+    /* 슬라이더 컨테이너 수정 */
+    .loan-slider {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .loan-cards-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+
+    .loan-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    /* 카드 스타일 수정 */
+    .loan-card {
+        flex: 0 0 100%;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        min-height: auto;
+        box-sizing: border-box;
+    }
+
+    .loan-card img {
+        position: static;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 15px;
+        display: block;
+    }
+
+    .loan-card h3 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        padding: 0;
+    }
+
+    .loan-card p {
+        font-size: 13px;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 더보기 메뉴 */
+    .card-menu {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* PC 레이아웃 */
+.interest-rate {
+    white-space: nowrap; /* PC에서는 한 줄로 유지 */
+}
+
+/* 모바일에서 줄바꿈 적용 */
+@media screen and (max-width: 768px) {
+    .interest-rate {
+        white-space: normal; /* 자동 줄바꿈 허용 */
+    }
+    
+    .interest-rate .divider {
+        display: block; /* 구분자 다음에서 강제 줄바꿈 */
+        height: 0;
+        overflow: hidden;
+    }
+}
+
+/* 모바일 반응형 수정 */
+@media screen and (max-width: 768px) {
+    /* 메인 타이틀과 이자율 정보 중앙 정렬 */
+    .slider-header {
+        text-align: center;
+    }
+
+    .slider-header h1 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .interest-rate {
+        text-align: center;
+        white-space: normal;
+    }
+
+    /* 슬라이더 컨트롤 */
+    .slider-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin: 15px 0;
+        width: 100%;
+    }
+
+    .prev-btn,
+    .next-btn {
+        color: #fff;
+        font-size: 18px;
+        background: none;
+        border: none;
+        padding: 5px;
+        opacity: 0.8;
+    }
+
+    .page-count {
+        color: #fff;
+        font-size: 14px;
+        min-width: 40px;
+        text-align: center;
+    }
+
+    /* 카드 내용 중앙 정렬 */
+    .loan-card {
+        text-align: center;
+    }
+
+    .loan-card h3 {
+        text-align: center;
+    }
+
+    .loan-card p {
+        text-align: center;
+        padding: 0;
+    }
 }

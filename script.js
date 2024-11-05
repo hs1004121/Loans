@@ -59,47 +59,61 @@ document.addEventListener('DOMContentLoaded', function() {
     const visibleCards = 3; // 한 번에 보이는 카드 수
     let currentIndex = 0;
 
-    // 카드 복제 및 추가
+    // 카드 복제 및 추가 함수 수정
     const setupInfiniteLoop = () => {
-        // 처음 3개의 카드를 복제하여 끝에 추가
-        for (let i = 0; i < visibleCards; i++) {
-            const clone = loanCards.children[i].cloneNode(true);
+        const originalCards = Array.from(loanCards.children);
+        
+        // 원본 카드들을 복제하여 뒤에 추가
+        originalCards.forEach(card => {
+            const clone = card.cloneNode(true);
             loanCards.appendChild(clone);
-        }
+        });
     };
 
-    const updateSlider = (transition = true) => {
-        loanCards.style.transition = transition ? 'transform 0.5s ease' : 'none';
+    const updateSlider = () => {
+        const isMobile = window.innerWidth <= 480;
+        const isTablet = window.innerWidth <= 768 && window.innerWidth > 480;
+        
+        const cardWidth = isMobile ? 
+            loanCards.children[0].offsetWidth : 
+            isTablet ? 
+                loanCards.children[0].offsetWidth * 2 + 10 : 
+                271.67;
+        
         const offset = -(currentIndex * cardWidth);
         loanCards.style.transform = `translateX(${offset}px)`;
         
-        // 페이지 카운터 업데이트
+        // 페이지 카운트는 원본 카드 개수 기준으로 표시
         const displayIndex = (currentIndex % totalCards) + 1;
         pageCount.textContent = `${displayIndex} / ${totalCards}`;
         
-        // 모든 카드의 배경을 초기화
+        // 배경색 업데이트 (원본과 복제본 모두)
         Array.from(loanCards.children).forEach(card => {
             card.style.background = 'rgba(255, 255, 255, 0.2)';
         });
-
-        // 현재 카드의 배경을 흰색으로 설정
-        const activeCardIndex = currentIndex % totalCards;
-        loanCards.children[activeCardIndex].style.background = 'white';
+        
+        // 현재 보이는 카드들의 배경색 변경
+        const activeIndex = currentIndex % totalCards;
+        loanCards.children[activeIndex].style.background = 'white';
+        loanCards.children[activeIndex + totalCards].style.background = 'white';
     };
 
     // 무한 루프 처리
     loanCards.addEventListener('transitionend', () => {
+        // 복제된 카드들의 중간 지점을 넘어가면
         if (currentIndex >= totalCards) {
-            currentIndex = 0;
-            updateSlider(false);
+            loanCards.style.transition = 'none';
+            currentIndex = currentIndex % totalCards;
+            updateSlider();
+            setTimeout(() => {
+                loanCards.style.transition = 'transform 0.3s ease';
+            }, 50);
         }
     });
 
     prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlider();
-        }
+        currentIndex--;
+        updateSlider();
     });
 
     nextBtn.addEventListener('click', () => {
@@ -115,5 +129,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 초기 설정
     setupInfiniteLoop();
-    updateSlider(false);
+    updateSlider();
+
+    // 기존 슬라이더 코드에 추가
+    const updateSliderForMobile = () => {
+        const isMobile = window.innerWidth <= 768;
+        const cardWidth = isMobile ? 
+            document.querySelector('.loan-card').offsetWidth + 15 : // 모바일에서는 카드 1개 너비 + gap
+            271.67; // 데스크톱에서는 기존 값 유지
+
+        const updateSlider = () => {
+            const offset = -(currentIndex * cardWidth);
+            loanCards.style.transform = `translateX(${offset}px)`;
+            pageCount.textContent = `${currentIndex + 1} / ${totalCards}`;
+            
+            Array.from(loanCards.children).forEach(card => {
+                card.style.background = 'rgba(255, 255, 255, 0.2)';
+            });
+
+            loanCards.children[currentIndex].style.background = 'white';
+        };
+
+        return updateSlider;
+    };
+
+    // 윈도우 리사이즈 이벤트 처리
+    window.addEventListener('resize', () => {
+        updateSliderForMobile()();
+    });
+
+    // 초기 실행
+    updateSliderForMobile()();
 });
