@@ -1,0 +1,676 @@
+:root {
+    --primary-blue: #4B6BFB;
+    --primary-yellow: #FFD600;
+    --secondary-yellow: #FFE500;
+    --hover-yellow: #FFD000;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --text-gray: #666666;
+    --border-gray: #EEEEEE;
+}
+
+/* 기본 스타일 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'NanumBarunGothic', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 상단 등록번호 바 */
+.registration-bar {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.registration-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
+}
+
+.top-nav a:hover {
+    opacity: 0.8;
+}
+
+/* 대각선 배경 */
+.diagonal-background {
+    background: linear-gradient(135deg, #FFE5A3 0%, #FFF 50%, #E6EFFF 100%);
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 메인 레이아웃 */
+.main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+/* 메인 슬라이더 */
+.main-slider {
+    position: relative;
+    padding: 40px;
+    background: var(--primary-blue);
+    border-radius: 20px;
+    color: white;
+}
+
+.slider-header {
+    margin-bottom: 30px;
+}
+
+.slider-header h1 {
+    font-size: 32px;
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.slider-nav {
+    position: absolute;
+    top: -50px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+}
+
+.slider-nav button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-nav button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.page-count {
+    color: white;
+    font-size: 14px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.loan-cards-wrapper {
+    overflow: hidden;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.loan-cards {
+    display: flex;
+    gap: 15px;
+}
+
+.loan-card {
+    flex: 0 0 256.67px;
+    width: 256.67px;
+    height: 180px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.loan-card:last-child {
+    margin-right: 0;
+}
+
+.loan-card.active {
+    background: white;
+}
+
+.loan-card h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.loan-card p {
+    font-size: 12px;
+    line-height: 1.3;
+    color: #666;
+}
+
+.loan-card img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    margin-top: auto;
+}
+
+/* 상담 현황 */
+.consult-status {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px 0;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-gray);
+}
+
+.status-badge {
+    background: var(--primary-blue);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 15px;
+}
+
+/* 프로모션 배너 */
+.promo-banner {
+    background: var(--primary-yellow);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 오른쪽 섹션 */
+.quick-consult {
+    background: var(--secondary-yellow);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.kakao-consult img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.kakao-btn {
+    font-weight: bold;
+    background-color: #FFD700;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    transition: background-color 0.3s;
+}
+
+.kakao-btn:hover {
+    background-color: #FFC700;
+}
+
+/* 퀵 메뉴 */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.menu-grid a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.menu-grid i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* 공지사항 */
+.notice-section {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.notice-header h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.notice-tag {
+    background: var(--primary-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.notice-list {
+    list-style: none;
+}
+
+.notice-list li {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+}
+
+.notice-list li:last-child {
+    border-bottom: none;
+}
+
+.notice-list li:hover {
+    background: rgba(75, 107, 251, 0.05);
+    padding-left: 20px;
+}
+
+/* 하단 메뉴 */
+.bottom-menu {
+    background: var(--white);
+    padding: 20px 0;
+    border-top: 1px solid var(--border-gray);
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.footer-nav a {
+    color: var(--text-gray);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #333;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .loan-cards {
+        flex-wrap: wrap;
+    }
+    
+    .loan-card {
+        min-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .loan-card {
+        min-width: 100%;
+    }
+    
+    .promo-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.slider-controls {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.slider-controls button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-controls button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.page-count {
+    color: white;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.loan-cards-wrapper {
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.loan-cards {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.loan-card {
+    flex: 0 0 calc((100% - 40px) / 3);
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    color: #333;
+}
+
+.loan-slider {
+    position: relative;
+    margin-top: 30px;
+    width: 360px;
+}
+
+.loan-cards-wrapper {
+    overflow: hidden;
+    width: 360px;
+    margin: 0 auto;
+}
+
+.loan-cards {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 15px;
+    width: auto;
+}
+
+.loan-card {
+    flex: 0 0 110px;
+    width: 110px;
+    height: 110px;
+    padding: 15px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.slider-controls {
+    position: absolute;
+    top: -50px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+}
+
+.slider-controls button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.slider-controls button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.page-count {
+    color: white;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.main-slider {
+    position: relative;
+    padding: 40px;
+    background: var(--primary-blue);
+    border-radius: 20px;
+    color: white;
+}
+
+.loan-slider {
+    position: relative;
+    margin-top: 40px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loan-cards-wrapper {
+    overflow: hidden;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.loan-cards {
+    display: flex;
+    gap: 15px;
+    transition: transform 0.5s ease;
+}
+
+.loan-card {
+    flex: 0 0 256.67px;
+    width: 256.67px;
+    height: 180px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.loan-card.active {
+    background: white;
+}
+
+.loan-card h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.loan-card p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.loan-card img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-top: auto;
+}
+
+.loan-card .menu-dots {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.slider-controls {
+    position: absolute;
+    top: -60px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.page-count {
+    color: white;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+}
+
+.loan-label {
+    display: inline-block;
+    background: var(--primary-yellow);
+    color: #333;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.status-slider {
+    height: 100px; /* 보여질 높이 설정 */
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+}
+
+.status-items {
+    animation: scrollUp 30s linear infinite;
+}
+
+.status-items:hover {
+    animation-play-state: paused;
+}
+
+.status-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    background: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.date {
+    color: #888;
+    font-size: 12px;
+}
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+.footer-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-buttons button {
+    width: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+.footer-bottom {
+    background-color: #000;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.copyright {
+    color: #fff;
+    font-size: 12px;
+}
