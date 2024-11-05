@@ -36,20 +36,42 @@ body {
 .registration-bar {
     background: var(--primary-blue);
     color: var(--white);
-    padding: 8px 0;
+    padding: 15px 0;
     font-size: 14px;
 }
 
-.registration-bar .container {
+.header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 30px;
+    width: auto;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+}
+
 .top-nav a {
     color: var(--white);
     text-decoration: none;
-    margin-left: 30px;
     font-size: 14px;
     transition: opacity 0.3s ease;
 }
@@ -216,7 +238,42 @@ body {
     padding: 30px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-text {
+    flex: 1;
+    z-index: 2;
+    text-align: left;
+}
+
+.banner-text h3 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.banner-text p {
+    font-size: 16px;
+    color: #666;
+}
+
+.banner-image {
+    position: relative;
+    width: 200px;
+    margin-left: auto;
+    align-self: flex-end;
+}
+
+.banner-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin-bottom: -30px;
 }
 
 /* 오른쪽 섹션 */
@@ -683,7 +740,7 @@ body {
         padding: 0 15px;
     }
 
-    /* 메인 레이아웃 */
+    /* 메 레이아웃 */
     .main-layout {
         flex-direction: column;
         gap: 20px;
@@ -937,7 +994,7 @@ body {
         box-sizing: border-box;
     }
 
-    /* 모든 섹션 공통 스타일 */
+    /* 모든 섹션 공통 스일 */
     .main-slider,
     .quick-consult,
     .notice-section,
@@ -971,7 +1028,7 @@ body {
         padding: 0 15px;
     }
 
-    /* 상담 신청 현황 텍스트 크기 조정 */
+    /* 상담 신청 황 텍스트 크기 조정 */
     .status-item span {
         font-size: 12px;
     }
@@ -1237,7 +1294,7 @@ body {
     }
     
     .interest-rate .divider {
-        display: block; /* 구분자 다���에서 강제 줄바꿈 */
+        display: block; /* 구분자 다에서 강제 줄바꿈 */
         height: 0;
         overflow: hidden;
     }
@@ -1245,7 +1302,7 @@ body {
 
 /* 모바일 반응형 수정 */
 @media screen and (max-width: 768px) {
-    /* 메인 타이틀과 이자율 정보 중앙 정렬 */
+    /* 메인 타이틀과 이자율 정보 중 정렬 */
     .slider-header {
         text-align: center;
         margin-bottom: 10px;
@@ -1300,7 +1357,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-    /* 메인 타이틀 여백 축소 */
+    /* 메인 타이틀 백 축소 */
     .slider-header {
         text-align: center;
         margin-bottom: 5px; /* 여백 더 줄임 */
@@ -1325,5 +1382,141 @@ body {
     .slider-controls {
         margin: 0 0 10px 0; /* 상하 여백 줄임 */
         padding: 3px 0; /* 패딩 줄임 */
+    }
+}
+
+/* 새로운 푸터 스타일 */
+.main-footer {
+    background: #f8f9fa;
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    flex: 1;
+}
+
+.loan-types {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.loan-info {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.company-motto {
+    font-size: 14px;
+    color: #888;
+}
+
+.footer-cta {
+    margin-left: 40px;
+}
+
+.inquiry-btn {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.inquiry-btn:hover {
+    background: #3a55d9;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .footer-text {
+        margin-bottom: 20px;
+    }
+
+    .footer-cta {
+        margin-left: 0;
+    }
+
+    .loan-types {
+        font-size: 14px;
+    }
+
+    .loan-info,
+    .company-motto {
+        font-size: 13px;
+    }
+}
+
+.loan-card i {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: var(--primary-blue);
+    opacity: 0.8;
+    transition: transform 0.3s ease;
+}
+
+.loan-card:hover i {
+    transform: scale(1.1);
+}
+
+/* 모바일 반응형에서 아이콘 위치 조정 */
+@media screen and (max-width: 768px) {
+    .loan-card i {
+        position: static;
+        margin: 15px auto 0;
+        display: block;
+    }
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    .promo-banner {
+        padding: 20px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .banner-text {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .banner-text h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .banner-text p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .banner-image {
+        width: 130px;
+        margin: 0 auto;
+    }
+
+    .banner-image img {
+        margin-bottom: -20px;
     }
 }

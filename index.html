@@ -6,15 +6,22 @@
     <title>혜성 소액전문대부</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <div class="page-wrapper">
         <!-- 최상단 등록번호 바 수정 -->
         <div class="registration-bar">
             <div class="container">
-                <div class="top-nav">
-                    <a href="#" target="_blank">홈페이지</a>
-                    <a href="https://open.kakao.com/o/s28eFlXg" target="_blank">문의하기</a>
+                <div class="header-content">
+                    <div class="logo-area">
+                        <img src="img/logo.png" alt="혜성소액전문대부 로고" class="logo-img">
+                        <span class="company-name">혜성소액전문대부</span>
+                    </div>
+                    <div class="top-nav">
+                        <a href="#" target="_blank">홈페이지</a>
+                        <a href="https://open.kakao.com/o/s28eFlXg" target="_blank">문의하기</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,32 +57,32 @@
                                     <div class="loan-card">
                                         <h3>모든 담보 대출</h3>
                                         <p>본인 명의 차량<br>집 소유자 또는 보증금<br>담보물건</p>
-                                        <img src="icon1.png" alt="">
+                                        <i class="fas fa-home fa-2x"></i>
                                     </div>
                                     <div class="loan-card">
                                         <h3>소액 대출</h3>
                                         <p>필요한 만큼만<br>빠르게 대출</p>
-                                        <img src="icon2.png" alt="">
+                                        <i class="fas fa-coins fa-2x"></i>
                                     </div>
                                     <div class="loan-card">
                                         <h3>무직자 대출</h3>
                                         <p>무직자도 가능한<br>맞춤형 대출</p>
-                                        <img src="icon3.png" alt="">
+                                        <i class="fas fa-user-circle fa-2x"></i>
                                     </div>
                                     <div class="loan-card">
                                         <h3>여성, 주부 대출</h3>
                                         <p>여성과 부를 위한<br>특별 대출</p>
-                                        <img src="icon4.png" alt="">
+                                        <i class="fas fa-female fa-2x"></i>
                                     </div>
                                     <div class="loan-card">
                                         <h3>비즈니스 대출</h3>
                                         <p>사업자를 위한<br>맞춤형 대출상품</p>
-                                        <img src="icon5.png" alt="">
+                                        <i class="fas fa-briefcase fa-2x"></i>
                                     </div>
                                     <div class="loan-card">
                                         <h3>직장인 대출</h3>
                                         <p>직장인을 위한<br>급여담보 대출</p>
-                                        <img src="icon6.png" alt="">
+                                        <i class="fas fa-user-tie fa-2x"></i>
                                     </div>
                                 </div>
                             </div>
@@ -98,11 +105,11 @@
                     <!-- 3. 프로모션 배너 -->
                     <div class="promo-banner">
                         <div class="banner-text">
-                            <h3>빠른 무담보상담으로 편리한 프리랜서대출!</h3>
+                            <h3>빠르고 편리한 대출 서비스!</h3>
                             <p>지치고 힘들 때 힘이 될 수 있는 소액전문대부</p>
                         </div>
                         <div class="banner-image">
-                            <img src="promo-illustration.png" alt="">
+                            <img src="img/대출.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -150,8 +157,19 @@
             </div>
         </div>
 
-        <!-- 푸터 관련 내용 전체 제거 -->
-        <!-- 기존 푸터 섹션을 완전히 제거합니다 -->
+        <!-- 새로운 푸터 추가 -->
+        <footer class="main-footer">
+            <div class="container footer-content">
+                <div class="footer-text">
+                    <p class="loan-types">직장인 프리랜서 개인회생자 신용회복자 무직자 여성 소액대출</p>
+                    <p class="loan-info">무방문 무서류 30분 상담만으로 10만~최대 100만원 까지 대출 가능</p>
+                    <p class="company-motto">지치고 힘들 때 힘이 될 수 있는 소액전문대부</p>
+                </div>
+                <div class="footer-cta">
+                    <a href="https://open.kakao.com/o/s28eFlXg" target="_blank" class="inquiry-btn">문의하기</a>
+                </div>
+            </div>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>

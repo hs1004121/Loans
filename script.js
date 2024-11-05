@@ -9,17 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
         for(let i = 0; i < 20; i++) {
             const surname = surnames[Math.floor(Math.random() * surnames.length)];
             const date = new Date();
-            date.setDate(date.getDate() - Math.floor(Math.random() * 30));
+            date.setDate(date.getDate() - Math.floor(Math.random() * 7));
             
             items.push({
                 name: `${surname}**`,
-                date: date.toLocaleDateString('ko-KR', {
+                date: date,
+                displayDate: date.toLocaleDateString('ko-KR', {
                     year: 'numeric',
                     month: '2-digit',
                     day: '2-digit'
                 }).replace(/\. /g, '.').replace('.', '')
             });
         }
+
+        // 날짜 기준 내림차순 정렬 (최신순)
+        items.sort((a, b) => b.date - a.date);
+
         return items;
     };
 
@@ -30,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="status-item">
                 <span class="badge">상담완료</span>
                 <span>${item.name} 상담이 완료되었습니다.</span>
-                <span class="date">${item.date}</span>
+                <span class="date">${item.displayDate}</span>
             </div>
         `).join('');
         
